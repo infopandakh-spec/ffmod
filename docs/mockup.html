@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="km"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Key shop - full usage mockup</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0b0d1e;color:#e8ecff;font-family:system-ui,sans-serif;max-width:460px;margin:auto;padding:12px 12px 40px}
+button{font:inherit;cursor:pointer;transition:.15s;-webkit-tap-highlight-color:transparent;background:#00c896;color:#04241d;border:0;border-radius:8px;padding:9px 14px;font-weight:600}
+button:not(:disabled):active{transform:scale(.96);filter:brightness(1.25)}button:disabled{opacity:.45;cursor:not-allowed}
+.tabs{display:flex;gap:6px;position:sticky;top:0;background:#0b0d1e;padding:6px 0 10px;z-index:5}
+.tabs button{flex:1;background:#232b47;color:#aab0d6;padding:10px 4px;font-size:13px}.tabs button.on{background:#2563eb;color:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gc{background:#1b2038;border:1px solid #2c3556;border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:6px}
+.gc .im{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:700}
+.gc small{color:#9aa6d1}.gc button{width:100%}
+.m{background:#1b2038;border:1px solid #2c3556;border-radius:16px;padding:16px;font-size:14px}
+.m label{display:block;color:#9aa6d1;font-size:13px;margin:12px 0 6px}
+.f{background:#0e1030;border:1px solid #2c3556;border-radius:10px;padding:10px 12px;color:#fff;width:100%;font:inherit;display:flex;justify-content:space-between;align-items:center}
+.ch{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#232b47;color:#aab0d6;border:2px solid transparent;border-radius:12px;padding:10px 16px;font-weight:400}
+.chip.on{background:#2563eb;border-color:#93c5fd;color:#fff;box-shadow:0 0 0 3px rgba(59,130,246,.35)}
+.gen{background:#0b7be0;color:#fff;border-radius:14px;padding:12px 24px;font-size:16px;margin-top:10px}
+.opts{background:#0f1230;border:1px solid #2c3556;border-radius:10px;margin-top:4px}.opts div{padding:10px 12px;cursor:pointer}.opts div:active{background:#1d2a52}
+.why{color:#ff8b8b;min-height:18px;margin:6px 0 0;font-size:13px}.h{font-size:12px;color:#9aa6d1;margin:6px 0 12px}
+.key{background:#0e1030;border:1px solid #2c3556;border-radius:10px;padding:10px;margin:6px 0;font-family:monospace;display:flex;justify-content:space-between;gap:8px}
+.key button{padding:4px 10px;font-size:12px}
+.ad{background:#1b2038;border:1px solid #2c3556;border-radius:12px;padding:12px;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.ad input,.ad select,.ad textarea{flex:1 1 80px;min-width:0;background:#0e1030;color:#fff;border:1px solid #2c3556;border-radius:8px;padding:9px;font:inherit}
+.ad button{flex:1 1 100%}.ad b{flex:1 1 100%}.ad .ro{flex:1 1 100%;color:#9aa6d1;font-size:13px}
+h3{font-weight:500;margin:6px 0 8px}.ok{color:#00c896}
+.top{position:relative;display:flex;align-items:center;justify-content:space-between;background:#1b2038;border:1px solid #2c3556;border-radius:16px;padding:8px 12px;margin-bottom:10px;min-height:64px}
+.mb{background:none;border:1px solid #2c3556;color:#fff;font-size:22px;line-height:1;padding:6px 12px;border-radius:10px}
+.brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;white-space:nowrap}
+.brand i{display:block;font-style:normal;font-size:26px;line-height:1}.brand b{font-size:15px;letter-spacing:1px;color:#f5c24b}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:20}
+.dr{position:fixed;top:0;left:0;bottom:0;width:260px;max-width:80%;background:#14182f;border-right:1px solid #2c3556;z-index:21;padding:16px;transition:transform .25s;overflow:auto}
+.dr .who{background:#1b2038;border-radius:12px;padding:12px;margin-bottom:10px}.dr .who div{font-size:22px;color:#00c896;font-weight:700}
+.dr a{display:block;padding:11px 10px;color:#e8ecff;border-radius:10px;cursor:pointer}.dr a:active{background:#2563eb}.dr hr{border:0;border-top:1px solid #2c3556;margin:8px 0}
+.lang{display:flex;gap:8px;align-items:center;padding:6px 10px}.lang button{flex:1;background:#232b47;color:#aab0d6}.lang button.on{background:#2563eb;color:#fff}
+.promo{position:relative;border-radius:18px;overflow:hidden;border:1px solid #2c3556;margin:0 0 12px;background:#000;aspect-ratio:16/9}
+.ps{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;transition:opacity .4s;text-align:center;padding:12px}
+.ps.on{opacity:1}.ps span{font-size:36px}.ps b{font-size:18px}.ps small{color:#cfd6ff}
+.dots{position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:6px}.dots i{width:7px;height:7px;border-radius:50%;background:#ffffff55}.dots i.on{background:#fff}
+.gd{background:#1b2038;border:1px solid #2c3556;border-radius:12px;padding:12px}.vid{background:#000;border-radius:12px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:#cfd6ff}
+</style></head><body>
+<div id="app"></div>
+<script>
+var I={
+en:{t1:'1 Shop',t2:'2 Generate keys',t3:'3 Result',t4:'4 Admin',brand:'Website name video',shop:'Shop',topup:'Top up',account:'My account',orders:'Orders',history:'Transactions',admin:'Admin',channel:'Channel',support:'Support',lang:'Language',logout:'Logout',balance:'Balance',role:'Admin',
+from:'From',instock:'in stock',gen_keys:'Generate keys',gen_title:'Generate new keys',keys_count:'Keys count',game:'Game',duration:'Duration',pay_with:'Pay with',generate:'Generate',total:'Total',per_key:'per key',only:'Only {n} in stock',enter:'Enter keys count',notenough:'Not enough balance. Top up or choose another payment.',sold:'sold out',
+res_none:'No order yet. Go to "2 Generate keys" and press Generate.',order:'Order',paid:'Balance deducted ✓',howto:'How to use',copy:'Copy',copied:'Copied',
+spent:'Total spent',pay_khqr:'Pay with KHQR',choose:'Choose an amount (USD)',amt_err:'Enter an amount',no_tx:'No transactions yet. Try a top-up or buy keys.',purchase:'Purchase',topup_tx:'Top-up',
+a_add:'Add mod',a_valid:'Validity (number)',a_price:'Price per key',a_add_b:'Add',a_mods:'Mods & stock',a_save:'Save validity/price',a_avail:'available',a_keys_ph:'One key per line\nKEY-001\nKEY-002',a_ready:'key(s) ready',a_addk:'Add keys',a_guide:'After-purchase guide',a_text:'Instructions / description',a_link:'Link https://...',a_video:'Video link / video name',a_file:'File name (zip/apk/pdf...)',a_saveg:'Save guide',a_gsaved:'Guide saved ✓ — see it in "3 Result" after a purchase',a_added:'Item added ✓ — see it in "2 Generate keys"',a_need:'Enter validity and price',a_paste:'Paste at least one key (one key per line)',a_addedk:'Added {a} key(s) from {l} line(s)',a_skip:' — {s} already in stock, skipped',
+Hour:'Hour',Day:'Day',Month:'Month',promo1:'Promo video',promo2:'Cheapest diamonds',promo3:'Instant keys',g_text:'1. Download the app\n2. Paste the key and press Start',promo:'Promo'},
+kh:{t1:'១ ហាង',t2:'២ បង្កើត Key',t3:'៣ លទ្ធផល',t4:'៤ អ្នកគ្រប់គ្រង',brand:'វីដេអូឈ្មោះ Website',shop:'ហាង',topup:'បញ្ចូលប្រាក់',account:'គណនីរបស់ខ្ញុំ',orders:'ការបញ្ជាទិញ',history:'ប្រវត្តិប្រតិបត្តិការ',admin:'អ្នកគ្រប់គ្រង',channel:'ឆានែល',support:'ជំនួយ',lang:'ភាសា',logout:'ចាកចេញ',balance:'សមតុល្យ',role:'អ្នកគ្រប់គ្រង',
+from:'ចាប់ពី',instock:'ក្នុងស្តុក',gen_keys:'បង្កើត Key',gen_title:'បង្កើត Key ថ្មី',keys_count:'ចំនួន Key',game:'ហ្គេម',duration:'រយៈពេល',pay_with:'បង់ជាមួយ',generate:'បង្កើត',total:'សរុប',per_key:'ក្នុងមួយ Key',only:'នៅសល់ត្រឹម {n} ក្នុងស្តុក',enter:'ដាក់ចំនួន Key',notenough:'សមតុល្យមិនគ្រប់គ្រាន់ សូមបញ្ចូលប្រាក់ ឬជ្រើសវិធីបង់ផ្សេង។',sold:'អស់ស្តុក',
+res_none:'មិនទាន់មានការបញ្ជាទិញ។ ទៅ "២ បង្កើត Key" ហើយចុចបង្កើត។',order:'ការបញ្ជាទិញ',paid:'បានដកសមតុល្យរួច ✓',howto:'របៀបប្រើ',copy:'ចម្លង',copied:'បានចម្លង',
+spent:'ចំណាយសរុប',pay_khqr:'បង់ជាមួយ KHQR',choose:'ជ្រើសចំនួនទឹកប្រាក់ (USD)',amt_err:'ដាក់ចំនួនទឹកប្រាក់',no_tx:'មិនទាន់មានប្រតិបត្តិការទេ។ សាកល្បងបញ្ចូលប្រាក់ ឬទិញ Key។',purchase:'ការទិញ',topup_tx:'បញ្ចូលប្រាក់',
+a_add:'បន្ថែមទំនិញ',a_valid:'សុពលភាព (លេខ)',a_price:'តម្លៃក្នុងមួយ Key',a_add_b:'បន្ថែម',a_mods:'ទំនិញ និងស្តុក',a_save:'រក្សាទុកសុពលភាព/តម្លៃ',a_avail:'នៅសល់',a_keys_ph:'មួយបន្ទាត់មួយ Key\nKEY-001\nKEY-002',a_ready:'Key រួចរាល់',a_addk:'បន្ថែម Key',a_guide:'ការណែនាំក្រោយទិញ',a_text:'ការណែនាំ / ការពណ៌នា',a_link:'Link https://...',a_video:'Link វីដេអូ / ឈ្មោះវីដេអូ',a_file:'ឈ្មោះ File (zip/apk/pdf...)',a_saveg:'រក្សាទុកការណែនាំ',a_gsaved:'បានរក្សាទុក ✓ — មើលក្នុង "៣ លទ្ធផល" ក្រោយទិញ',a_added:'បានបន្ថែម ✓ — មើលក្នុង "២ បង្កើត Key"',a_need:'ដាក់សុពលភាព និងតម្លៃ',a_paste:'សូមបិទភ្ជាប់ Key យ៉ាងតិចមួយ (មួយបន្ទាត់មួយ Key)',a_addedk:'បានបន្ថែម {a} Key ពី {l} បន្ទាត់',a_skip:' — {s} មានស្រាប់ក្នុងស្តុក បានរំលង',
+Hour:'ម៉ោង',Day:'ថ្ងៃ',Month:'ខែ',promo1:'វីដេអូផ្សព្វផ្សាយ',promo2:'Diamonds ថោកបំផុត',promo3:'Key ផ្ទាល់ភ្លាមៗ',g_text:'១. ទាញយក App\n២. Paste Key ហើយចុច Start',promo:'ផ្សព្វផ្សាយ'}};
+var S={lang:'kh',tab:0,view:0,game:0,item:0,qty:1,dd:false,keys:[],tx:[],orders:0,spent:0,bal:12.5,PI:0,drawer:false,last:'',gm:'',am:'',
+guide:{text:'g',link:'https://t.me/yourchannel',video:'tutorial.mp4',file:'tool.zip'},
+games:[{n:'Free Fire',c:'#f59e0b',it:[{d:6,u:'Hour',p:0.5,k:['K1-001','K1-002','K1-003']},{d:1,u:'Day',p:1.5,k:['K2-001','K2-002','K2-003']},{d:7,u:'Day',p:6,k:['K3-001','K3-002','K3-003']},{d:1,u:'Month',p:15,k:['K4-001','K4-002','K4-003']}]},
+{n:'PUBG',c:'#22c55e',it:[{d:1,u:'Day',p:2,k:['P1-001','P1-002','P1-003']},{d:7,u:'Day',p:8,k:['P2-001','P2-002','P2-003']}]}]};
+var H={Hour:1,Day:24,Month:720};
+function t(k,o){var s=I[S.lang][k];if(s==null)s=I.en[k]||k;if(o)for(var x in o)s=s.replace('{'+x+'}',o[x]);return s}
+function lab(i){return i.d+' '+t(i.u)}
+function stock(g){return g.it.reduce(function(a,i){return a+i.k.length},0)}
+function srt(g){return g.it.map(function(x,k){return k}).sort(function(a,b){var A=g.it[a],B=g.it[b];return A.d*H[A.u]-B.d*H[B.u]})}
+function $(i){return document.getElementById(i)}
+function go(v){S.view=v;if(v<4)S.tab=v;S.drawer=false;draw()}
+function setLang(l){S.lang=l;draw()}
+function money(n){return '$'+n.toFixed(2)}
+function esc(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+var VIEWS=[shop,modal,res,admin,account,topup,history];
+function draw(){
+ var tabs=[1,2,3,4].map(function(n,k){return '<button class="'+(S.view===k?'on':'')+'" onclick="go('+k+')">'+t('t'+n)+'</button>'}).join('');
+ var dr='<div class="ov" '+(S.drawer?'':'hidden')+' onclick="S.drawer=false;draw()"></div><aside class="dr" style="transform:translateX('+(S.drawer?'0':'-105%')+')"><div class="who"><b>Master</b> <small>('+t('role')+')</small><br><small>'+t('balance')+'</small><div>'+money(S.bal)+'</div></div>'+
+ '<a onclick="go(0)">&#127968; '+t('shop')+'</a><a onclick="go(5)">&#128176; '+t('topup')+'</a><a onclick="go(4)">&#128100; '+t('account')+'</a><a onclick="go(2)">&#128230; '+t('orders')+'</a><a onclick="go(6)">&#129534; '+t('history')+'</a><a onclick="go(3)">&#9881; '+t('admin')+'</a><hr><a>&#9992; '+t('channel')+'</a><a>&#9992; '+t('support')+'</a><hr>'+
+ '<div class="lang">&#127760; '+t('lang')+': <button class="'+(S.lang==='kh'?'on':'')+'" onclick="setLang(\'kh\')">ខ្មែរ</button><button class="'+(S.lang==='en'?'on':'')+'" onclick="setLang(\'en\')">EN</button></div><hr><a>&#128682; '+t('logout')+'</a></aside>';
+ $('app').innerHTML='<div class="tabs">'+tabs+'</div><div class="top"><button class="mb" onclick="S.drawer=true;draw()" aria-label="Menu">&#9776;</button><div class="brand"><i>&#128009;</i><b>MASTER KH SHOP</b></div><b style="color:#00c896;font-size:18px">'+money(S.bal)+'</b></div>'+dr+'<div id="view"></div>';
+ document.documentElement.lang=S.lang;VIEWS[S.view]($('view'));if(S.view===0)promo()}
+function promo(){var e=$('pm');if(!e)return;var p=[['&#127918;','promo1'],['&#128142;','promo2'],['&#128273;','promo3']],i=S.PI%3;
+ e.innerHTML=p.map(function(x,k){return '<div class="ps'+(k===i?' on':'')+'" style="background:'+['#3b1d6e','#0f3a5f','#14532d'][k]+'"><span>'+x[0]+'</span><b>'+t('promo')+' '+(k+1)+'</b><small>'+t(x[1])+'</small></div>'}).join('')+'<div class="dots">'+p.map(function(x,k){return '<i class="'+(k===i?'on':'')+'"></i>'}).join('')+'</div>'}
+setInterval(function(){S.PI++;if(S.view===0)promo()},2500);
+function shop(v){var h='<div class="promo" id="pm"></div><div class="grid">';
+ S.games.forEach(function(x,k){var mn=Math.min.apply(null,x.it.map(function(i){return i.p}));
+  h+='<div class="gc"><div class="im" style="background:'+x.c+'33;color:'+x.c+'">'+x.n[0]+'</div><b>'+x.n+'</b><small>'+t('from')+' '+money(mn)+' · '+stock(x)+' '+t('instock')+'</small><button onclick="S.game='+k+';S.item=srt(S.games['+k+'])[0];S.qty=1;go(1)">'+t('gen_keys')+'</button></div>'});
+ v.innerHTML=h+'</div>'}
+function why(){var g=S.games[S.game],it=g.it[S.item],tot=it.p*S.qty;
+ if(S.qty<1)return t('enter');if(S.qty>it.k.length)return t('only',{n:it.k.length});if(S.bal+1e-9<tot)return t('notenough');return ''}
+function modal(v){var g=S.games[S.game],it=g.it[S.item],w=why();
+ var chips=srt(g).map(function(k){var e=g.it[k].k.length;return '<button class="chip'+(k===S.item?' on':'')+'"'+(e?'':' disabled')+' onclick="S.item='+k+';draw()">'+lab(g.it[k])+(e?'':' ('+t('sold')+')')+'</button>'}).join('');
+ var opts=S.dd?'<div class="opts">'+S.games.map(function(x,k){return '<div onclick="S.game='+k+';S.item=srt(S.games['+k+'])[0];S.dd=false;draw()">'+x.n+'</div>'}).join('')+'</div>':'';
+ v.innerHTML='<div class="m"><b style="font-size:17px;font-weight:500">'+t('gen_title')+'</b><label>'+t('keys_count')+' *</label><input class="f" type="number" min="1" value="'+S.qty+'" oninput="S.qty=parseInt(this.value)||0;sub()">'+
+ '<label>'+t('game')+'</label><div class="f" onclick="S.dd=!S.dd;draw()"><span>'+g.n+'</span><span>▾</span></div>'+opts+
+ '<label>'+t('duration')+'</label><div class="ch">'+chips+'</div><label>'+t('pay_with')+'</label><div class="ch"><button class="chip on">'+t('balance')+'</button></div>'+
+ '<p id="tot" style="margin:14px 0 2px"></p><p style="margin:2px 0">'+t('balance')+': '+money(S.bal)+'</p><p class="why" id="why"></p><button class="gen" id="gen" onclick="buy()">'+t('generate')+'</button></div>';sub()}
+function sub(){var it=S.games[S.game].it[S.item],w=why();$('tot').textContent=t('total')+': '+money(it.p*S.qty)+' ('+money(it.p)+' '+t('per_key')+')';$('why').textContent=w;$('gen').disabled=!!w}
+function buy(){var g=S.games[S.game],it=g.it[S.item];S.bal=Math.round((S.bal-it.p*S.qty)*100)/100;S.keys=it.k.splice(0,S.qty);S.orders++;S.spent+=it.p*S.qty;
+ var rec={g:g.n,d:it.d,u:it.u,q:S.qty,tot:it.p*S.qty};S.tx.unshift({sign:'-',amt:rec.tot,kind:'purchase',rec:rec});S.last=rec;go(2)}
+function rtext(r){return r.g+' '+r.d+' '+t(r.u)+' x'+r.q}
+function res(v){if(!S.keys.length){v.innerHTML='<p class="h">'+t('res_none')+'</p>';return}
+ v.innerHTML='<h3>'+t('order')+' — '+esc(rtext(S.last)+' ('+money(S.last.tot)+')')+'</h3>'+S.keys.map(function(k){return '<div class="key"><span>'+k+'</span><button onclick="navigator.clipboard&&navigator.clipboard.writeText(\''+k+'\');this.textContent=t(\'copied\')">'+t('copy')+'</button></div>'}).join('')+'<p class="ok">'+t('paid')+'</p>'+guide()}
+function guide(){var G=S.guide,tx=G.text==='g'?t('g_text'):G.text;if(!tx&&!G.link&&!G.video&&!G.file)return '';
+ return '<h3>'+t('howto')+'</h3><div class="gd">'+(G.video?'<div class="vid">&#9654; '+esc(G.video)+'</div>':'')+(tx?'<p style="white-space:pre-wrap;margin:8px 3px">'+esc(tx)+'</p>':'')+
+ (G.link?'<button class="chip" style="background:#232b47">&#128279; '+esc(G.link.replace(/^https?:\/\//,''))+'</button> ':'')+(G.file?'<button>&#11015; '+esc(G.file)+'</button>':'')+'</div>'}
+function account(v){v.innerHTML='<h3>'+t('account')+'</h3><div class="gd"><b>Master</b> <small>('+t('role')+')</small><div style="font-size:26px;color:#00c896;font-weight:700;margin:6px 0">'+money(S.bal)+'</div><p style="margin:4px 0;color:#9aa6d1">'+t('orders')+': '+S.orders+' · '+t('spent')+': '+money(S.spent)+'</p><button onclick="go(5)">'+t('topup')+'</button> <button onclick="go(6)" style="background:#2f3b66;color:#fff">'+t('history')+'</button></div>'}
+function topup(v){v.innerHTML='<h3>'+t('topup')+'</h3><div class="gd"><p class="h">'+t('choose')+'</p><div class="ch" id="tc"></div><input class="f" id="ta" type="number" min="0.01" step="0.01" placeholder="USD" style="margin:10px 0"><button onclick="tp()">'+t('pay_khqr')+'</button><p class="why" id="tm"></p></div>';
+ [1,5,10,20].forEach(function(n){var b=document.createElement('button');b.className='chip';b.textContent='$'+n;b.onclick=function(){$('ta').value=n};$('tc').appendChild(b)})}
+function tp(){var a=parseFloat($('ta').value);if(!a||a<=0){$('tm').textContent=t('amt_err');return}S.bal=Math.round((S.bal+a)*100)/100;S.tx.unshift({sign:'+',amt:a,kind:'topup_tx',rec:null});go(4)}
+function history(v){v.innerHTML='<h3>'+t('history')+'</h3>'+(S.tx.length?S.tx.map(function(x){return '<div class="key"><span>'+t(x.kind==='purchase'?'purchase':'topup_tx')+' · '+esc(x.rec?rtext(x.rec):'KHQR')+'</span><b style="color:'+(x.sign==='+'?'#00c896':'#ff8b8b')+'">'+x.sign+money(x.amt)+'</b></div>'}).join(''):'<p class="h">'+t('no_tx')+'</p>')}
+function unitSel(id,cur){return '<select id="'+id+'">'+['Hour','Day','Month'].map(function(u){return '<option value="'+u+'"'+(u===cur?' selected':'')+'>'+t(u)+'</option>'}).join('')+'</select>'}
+function admin(v){var h='<h3>'+t('a_add')+'</h3><div class="ad"><select id="ag">'+S.games.map(function(x,k){return '<option value="'+k+'">'+x.n+'</option>'}).join('')+'</select><input id="ad" type="number" min="1" placeholder="'+t('a_valid')+'">'+unitSel('au','Day')+'<input id="ap" type="number" step="0.01" placeholder="'+t('a_price')+'"><button onclick="add()">'+t('a_add_b')+'</button></div><p class="h">'+S.am+'</p><h3>'+t('a_mods')+'</h3>';
+ S.games.forEach(function(g,gi){g.it.forEach(function(i,ii){var id=gi+'_'+ii;h+='<div class="ad"><b>'+g.n+' · '+lab(i)+' · '+money(i.p)+'</b><input id="d'+id+'" type="number" min="1" value="'+i.d+'">'+unitSel('u'+id,i.u)+'<input id="p'+id+'" type="number" step="0.01" value="'+i.p+'"><button style="background:#2f3b66;color:#fff" onclick="save('+gi+','+ii+')">'+t('a_save')+'</button><span class="ro">'+t('a_avail')+' '+i.k.length+'</span><textarea id="k'+id+'" rows="3" placeholder="'+esc(t('a_keys_ph'))+'" oninput="cnt(this)" style="flex:1 1 100%"></textarea><span class="ro" id="c'+id+'">0 '+t('a_ready')+'</span><button onclick="addk('+gi+','+ii+')">'+t('a_addk')+'</button><span class="ro" id="m'+id+'"></span></div>'})});
+ var G=S.guide;h+='<h3>'+t('a_guide')+'</h3><div class="ad"><b>'+S.games[0].n+'</b><textarea id="gt" rows="3" placeholder="'+t('a_text')+'" style="flex:1 1 100%">'+esc(G.text==='g'?t('g_text'):G.text)+'</textarea><input id="gl" placeholder="'+t('a_link')+'" value="'+esc(G.link)+'" style="flex:1 1 100%"><input id="gv" placeholder="'+t('a_video')+'" value="'+esc(G.video)+'" style="flex:1 1 100%"><input id="gf" placeholder="'+t('a_file')+'" value="'+esc(G.file)+'" style="flex:1 1 100%"><button onclick="sg()">'+t('a_saveg')+'</button><span class="ro">'+S.gm+'</span></div>';
+ v.innerHTML=h}
+function add(){var d=parseInt($('ad').value),p=parseFloat($('ap').value);if(!d||d<1||isNaN(p)){S.am=t('a_need');draw();return}
+ S.games[+$('ag').value].it.push({d:d,u:$('au').value,p:p,k:[]});S.am=t('a_added');draw()}
+function save(g,i){var x=S.games[g].it[i],d=parseInt($('d'+g+'_'+i).value),p=parseFloat($('p'+g+'_'+i).value);if(!d||isNaN(p))return;x.d=d;x.u=$('u'+g+'_'+i).value;x.p=p;draw()}
+function cnt(e){var n=e.value.split(/\r?\n/).filter(function(x){return x.trim()}).length;e.nextElementSibling.textContent=n+' '+t('a_ready')}
+function addk(g,i){var it=S.games[g].it[i],L=[],seen={},id=g+'_'+i;
+ $('k'+id).value.split(/\r?\n/).forEach(function(x){x=x.trim();if(x&&!seen[x]){seen[x]=1;L.push(x)}});
+ if(!L.length){$('m'+id).textContent=t('a_paste');return}
+ var a=0;L.forEach(function(x){if(it.k.indexOf(x)<0){it.k.push(x);a++}});
+ var msg=t('a_addedk',{a:a,l:L.length})+(L.length>a?t('a_skip',{s:L.length-a}):'');draw();$('m'+id).textContent=msg}
+function sg(){S.guide={text:$('gt').value,link:$('gl').value.trim(),video:$('gv').value.trim(),file:$('gf').value.trim()};S.gm=t('a_gsaved');draw()}
+draw();
+</script></body></html>
